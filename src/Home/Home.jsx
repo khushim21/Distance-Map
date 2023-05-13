@@ -100,7 +100,7 @@ const Home = () => {
     <div className="home">
 
         <div className="container">
-            <p className='heading'>Let's calculate distance from Google maps</p>
+            <p className='heading'>Let's calculate <span style={{fontWeight:"bold"}}> distance</span> from Google maps</p>
 
         <div className="content-container">
 
@@ -109,26 +109,26 @@ const Home = () => {
 
             <div className="location-container">
 
-                <div className="location-inputs">
+                <div className="location-inputs" style={{marginRight:80, marginBottom:43}}>
+                    
+                    <div style={{fontFamily:"IBM Plex Sans",fontWeight:"400",fontSize:14, color:"#000000", marginBottom:-12}}>Origin</div>
                 <Autocomplete>
                 <input type="text" placeholder='Origin' ref={originRef}/>
                 </Autocomplete>
 
-                <div className="waypoints">
-
+                <div className="waypoints" >
+                    <div style={{fontFamily:"IBM Plex Sans",fontWeight:"400",fontSize:14, marginBottom:3,color:"#000000"}}>Stop</div>
                     <Autocomplete>
                     <input type="text" placeholder='Waypoints' ref={waypointRef} />
                     </Autocomplete>
-                    <button className='waypoint-btn' onClick={handleAddWaypoint}><AiOutlinePlusCircle /> Add another stop</button>
-
                 </div>
-
+ <button className='waypoint-btn' style={{ marginTop:-12}} onClick={handleAddWaypoint}><AiOutlinePlusCircle /> Add another stop</button>
                 <div className='display-waypoints'>
                 {waypoints.map((waypoint, index) => (
                     <div key={index}>{waypoint.location}</div>
                 ))}
                 </div>
-
+                <div style={{fontFamily:"IBM Plex Sans",fontWeight:"400",fontSize:14, marginBottom:-13,color:"#000000"}}>Destination</div>
                 <Autocomplete>
                 <input type="text" placeholder='Destination' ref={destinationRef}/>
                 </Autocomplete>
@@ -156,14 +156,11 @@ const Home = () => {
                     <p className='distance-style-number'>{distance}</p>
                 </div>
 
-                <div className='distance-text'>
-                    {!loading ? (
-                        <p>The distance between {origin} and {destination}<br /> via the seleted route is {distance} kms.</p>
-                    ) : (
-                        <p>Please select a route.</p>
-                    )}
-                    {loading && <div className="loading">Loading...</div>}
-                </div>
+               {  origin !== null && destination !== null && (<div className='distance-text'>
+                   
+                             <p>The distance between <span style={{fontWeight:"bold"}}>{origin}</span> and <span style={{fontWeight:"bold"}}>{destination}</span> via the seleted route is {distance} kms.</p>
+                    
+                </div>)}
 
             </div>
         </div>
@@ -172,7 +169,7 @@ const Home = () => {
             <GoogleMap
                 center={center}
                 zoom={12}
-                mapContainerStyle={{width : '100%',  height: '100%'}}
+                mapContainerStyle={{width : 560,  height: 511}}
                 options={{
                     streetViewControl:false,
                     mapTypeControl:false,

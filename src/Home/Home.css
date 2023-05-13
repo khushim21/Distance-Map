@@ -46,9 +46,7 @@
 }
 
 .render-map-box{
-    height: 50vh;
-    width: 50vw;
-    margin: 5%;
+   margin-left:130px
 }
 
 .location-container{
@@ -74,7 +72,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+   
  
 }
 
@@ -104,7 +102,9 @@ input{
     background-color: #f4f8fa;
     border: none;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    align-self:flex-end;
+    
 }
 
 .calc-btn{
@@ -112,14 +112,17 @@ input{
     border-radius: 32px;
     color: white;
     border: #1B31A8 1px solid;
-    padding: 15%;
     font-family: 'VT323', monospace;
     font-family: 'Work Sans', sans-serif;
+    height: 50px;
+    width:141px;
+    top:262px;
 }
 
 .distance{
     border-radius: 8px;
     border: #DCDDEC 1px solid;
+    width:480px
 }
 
 .distance-number{
