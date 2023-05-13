@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import {useJsApiLoader, GoogleMap, Marker, Autocomplete, DirectionsRenderer, DirectionsService} from "@react-google-maps/api"
 import {AiOutlinePlusCircle} from "react-icons/ai"
-import {FaDotCircle} from "react-icons/fa"
+import {FaDotCircle,FaMapMarker} from "react-icons/fa"
 import "./Home.css"
 const Home = () => {
 
@@ -112,15 +112,21 @@ const Home = () => {
                 <div className="location-inputs" style={{marginRight:80, marginBottom:43}}>
                     
                     <div style={{fontFamily:"IBM Plex Sans",fontWeight:"400",fontSize:14, color:"#000000", marginBottom:-12}}>Origin</div>
-                <Autocomplete>
-                <input type="text" placeholder='Origin' ref={originRef}/>
+                    <div style={{display:"flex", flexDirection:"row", alignItems:"center",backgroundColor:"white"}}>
+                    <FaDotCircle style={{marginRight:5, color:"green",marginLeft:3}}/>
+                <Autocomplete >
+                <input type="text" placeholder='Origin' ref={originRef} style={{border:"0px", backgroundColor:"white",marginBottom:0}}/>
                 </Autocomplete>
+                </div>
 
                 <div className="waypoints" >
                     <div style={{fontFamily:"IBM Plex Sans",fontWeight:"400",fontSize:14, marginBottom:3,color:"#000000"}}>Stop</div>
+                     <div style={{display:"flex", flexDirection:"row", alignItems:"center",backgroundColor:"white"}}>
+                    <FaDotCircle style={{marginRight:5,marginLeft:3}}/>
                     <Autocomplete>
-                    <input type="text" placeholder='Waypoints' ref={waypointRef} />
+                    <input type="text" placeholder='Waypoints' ref={waypointRef} style={{border:"0px",backgroundColor:"white",marginBottom:0}}/>
                     </Autocomplete>
+                    </div>
                 </div>
  <button className='waypoint-btn' style={{ marginTop:-12}} onClick={handleAddWaypoint}><AiOutlinePlusCircle /> Add another stop</button>
                 <div className='display-waypoints'>
@@ -128,10 +134,14 @@ const Home = () => {
                     <div key={index}>{waypoint.location}</div>
                 ))}
                 </div>
-                <div style={{fontFamily:"IBM Plex Sans",fontWeight:"400",fontSize:14, marginBottom:-13,color:"#000000"}}>Destination</div>
+                <div style={{fontFamily:"IBM Plex Sans",fontWeight:"400",fontSize:14, marginBottom:-13,color:"#000000", }}>Destination</div>
+                 <div style={{display:"flex", flexDirection:"row", alignItems:"center",backgroundColor:"white"}}>
+                    <FaMapMarker style={{marginRight:5,marginLeft:3}}/>
                 <Autocomplete>
-                <input type="text" placeholder='Destination' ref={destinationRef}/>
+                <input type="text" placeholder='Destination' ref={destinationRef} style={{border:"0px",marginBottom:0,backgroundColor:"white"}}/>
+                 
                 </Autocomplete>
+                </div>
 
                 </div>
 
